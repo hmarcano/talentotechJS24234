@@ -1,0 +1,858 @@
+@import url("https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;600&display=swap");
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&family=Roboto:wght@300;400&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  padding: 0;
+}
+
+body {
+  font-family: "Sarabun", sans-serif; /* Aplicar la fuente Sarabun */
+  background-color: #1b1b1b; /* Fondo oscuro mate */
+  color: white;
+
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+  letter-spacing: 2px;
+}
+
+header {
+  display: flex;
+  height: 90px;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: transparent;
+  position: relative;
+  z-index: 10;
+  width: 100%;
+}
+
+/* Hacer que el header y todo dentro de él sea transparente */
+header:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease;
+}
+
+header h1 {
+  font-size: 24px;
+  color: white;
+}
+
+nav {
+  position: relative;
+}
+
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+nav ul li {
+  position: relative;
+  border-radius: 32px 64px;
+}
+
+nav ul li a {
+  display: block;
+  padding: 10px 20px;
+  color: white;
+  text-decoration: none;
+  position: relative;
+}
+
+.listappal {
+  border-right: 2px;
+  border-left: 2px;
+  border-style: solid;
+  /* 	border-image: linear-gradient(to bottom, #ccc, #555 66%, #181818) 1 100%; */
+  border-image: linear-gradient(to bottom, #181818, #eee, #181818) 1 100%;
+}
+
+/* Efecto de subrayado animado más rápido */
+nav ul li a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 2px;
+  width: 0;
+  background-color: white;
+  transition: width 0.55s ease; /* Animación más rápida */
+}
+
+nav ul li a:hover::after {
+  width: 100%;
+}
+
+/* Hover translúcido sobre los enlaces */
+nav ul li a:hover {
+  background-color: rgba(100, 100, 100, 0.3);
+}
+
+/* Dropdown menu */
+nav ul li ul {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: rgba(18, 18, 18, 0.5);
+  list-style: none;
+  padding: 0;
+}
+
+nav ul li:hover ul {
+  display: block;
+}
+
+nav ul li ul li a {
+  padding: 10px 20px;
+  white-space: nowrap;
+}
+
+nav ul li ul li a:hover {
+  background-color: rgba(74, 73, 73, 0.5);
+}
+
+/* Menú Hamburguesa */
+.menu-btn {
+  display: none;
+  cursor: pointer;
+  font-size: 24px;
+  color: white;
+}
+
+/* ############################# */
+.carousel {
+  position: relative;
+  width: 100%;
+  height: 70vh;
+  overflow: hidden;
+}
+
+.carousel-track {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.slide {
+  min-width: 100%;
+  height: 70vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-fit: contain;
+  object-fit: fill;
+}
+
+.carousel-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  font-size: 24px;
+  z-index: 1;
+}
+
+.prev {
+  left: 10px;
+}
+
+.next {
+  right: 10px;
+}
+/* ################################# */
+
+/* ##################nuevacoleccion######################  */
+
+.nuevacoleccion {
+  width: 100%;
+  height: 100%;
+  overflow: hidden; /* Oculta cualquier parte de la imagen que sobresalga */
+}
+
+.imagen-completa {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* Asegura que la imagen esté completa sin recortes */
+}
+/* ##################fin nuevacoleccion######################  */
+
+/* ##################TIPO DE PRODUCTO#################3 */
+.productos {
+  display: flex;
+  height: 740px;
+  margin: 15px auto;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 0 10px;
+  max-width: 1200px;
+}
+
+.productos article {
+  width: 49%;
+}
+
+.prodshirt,
+.prodhoddie {
+  display: flex;
+  position: relative;
+  overflow: hidden;
+  align-items: center;
+  justify-content: center;
+  /* height: 100%; */
+  border-radius: 8px;
+}
+
+.prodshirt::before,
+.prodhoddie::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* background-size: cover; */
+  background-size: 100% 100%;
+  filter: grayscale(100%) blur(2px);
+  transition: transform 0.3s ease, filter 0.3s ease;
+  z-index: -1;
+}
+
+.prodhoddie::before {
+  background-image: url(../img/hoodieperson.jpg);
+}
+
+.prodshirt::before {
+  background-image: url(../img/shirtperson.jpg);
+}
+
+.prodshirt h3,
+.prodhoddie h3 {
+  position: relative;
+  z-index: 1;
+  background-color: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(5px);
+  border-radius: 5px;
+  padding: 20px;
+  font-weight: bold;
+  transition: transform 0.3s ease;
+  font-size: 1.5rem;
+}
+
+.prodshirt:hover::before,
+.prodhoddie:hover::before {
+  filter: grayscale(0%) blur(0);
+  transform: scale(1.1);
+}
+
+.prodshirt h3:hover,
+.prodhoddie h3:hover {
+  transform: scale(1.1);
+}
+
+/* Responsivo para pantallas más pequeñas */
+
+.titulo {
+  font-size: 1.5rem;
+  margin: 10px 0 10px 40px;
+}
+/* ##################FIN TIPO DE PRODUCTO#################3 */
+
+/* #################LO MAS VENDIDO#################### */
+.masvendido {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 0.2fr));
+  width: 100%;
+  padding: 0 5rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.grid-item {
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  /* padding: 1rem; */
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* height: 600px; */
+  /* height: 100%; */
+
+  min-width: 250px;
+}
+
+/* Contenedor de imágenes para asegurar que se mantengan en el mismo tamaño */
+.image-container {
+  position: relative;
+  width: 100%;
+  padding-top: 100%;
+  overflow: hidden;
+}
+
+.image-container img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Asegura que ambas imágenes ocupen el mismo espacio */
+  border-radius: 4px;
+  transition: opacity 0.1s ease-in-out;
+  padding: 10px;
+}
+
+/* Imagen frontal visible inicialmente */
+.front-img {
+  opacity: 1;
+}
+
+/* Imagen trasera oculta inicialmente */
+.back-img {
+  opacity: 0;
+}
+
+/* Al hacer hover, intercambia las imágenes */
+.image-container:hover .front-img {
+  opacity: 0;
+}
+
+.image-container:hover .back-img {
+  opacity: 1;
+}
+
+/* Mantiene la información del producto abajo de las imágenes */
+.product-info {
+  background-color: rgb(118, 116, 116, 0.1);
+  margin-top: 1rem;
+  color: #333;
+  height: 120px;
+  width: 100%;
+  padding: 5px 5px 5px 20px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: center;
+}
+
+.product-title {
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: #333;
+}
+
+.product-price {
+  font-size: 0.9rem;
+  color: #777;
+}
+
+.rating {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 0.3rem;
+}
+
+.star {
+  color: #ffd700;
+  margin-right: 2px;
+}
+
+.see-more-btn {
+  margin: 1rem 0;
+  margin-left: 50%;
+  padding: 0.8rem 2rem;
+  font-size: 1rem;
+  background-color: #333;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.see-more-btn:hover {
+  background-color: #555;
+}
+
+/* #################FIN LO MAS VENDIDO#################### */
+
+/* <!-- ######################GARANTIA##################### --> */
+.garantia {
+  display: flex;
+  flex-wrap: wrap;
+  min-height: 200px;
+  width: 100%;
+  justify-content: space-between;
+  margin: 30px 0px;
+  /* padding: 0 80px; */
+}
+
+.garantia article {
+  flex: 1 1 22%;
+  width: 22%;
+  text-align: center;
+  /* min-width: 200px; */
+  /* max-width: 18%; */
+}
+
+.garantitem {
+  margin: 20px 5px;
+}
+
+.fa-solid {
+  font-size: 46px;
+}
+
+/* #######################FOOTER################ */
+.site-footer {
+  background-color: #26272b;
+  padding: 20px;
+  font-size: 15px;
+  line-height: 24px;
+  color: #737373;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.site-footer a {
+  color: #737373;
+}
+.site-footer a:hover {
+  color: #3366cc;
+  text-decoration: none;
+}
+
+.site-footer .social-icons {
+  text-align: right;
+}
+.site-footer .social-icons a {
+  width: 60px;
+  height: 60px;
+  line-height: 60px;
+  margin-left: 6px;
+  margin-right: 0;
+  border-radius: 100%;
+  background-color: #33353d;
+}
+.copyright-text {
+  margin: 0;
+}
+
+.social-icons {
+  padding-left: 0;
+  margin-bottom: 0;
+  list-style: none;
+}
+.social-icons li {
+  display: inline-block;
+  margin-bottom: 4px;
+}
+/* .social-icons li.title {
+  margin-right: 15px;
+  text-transform: uppercase;
+  color: #96a2b2;
+  font-weight: 700;
+  font-size: 13px;
+} */
+.social-icons a {
+  background-color: #eceeef;
+  color: #818a91;
+  font-size: 22px;
+  display: inline-block;
+  /* line-height: 94px;
+  width: 44px;
+  height: 94px; */
+  text-align: center;
+  /* margin-right: 8px; */
+  border-radius: 100%;
+  -webkit-transition: all 0.2s linear;
+  -o-transition: all 0.2s linear;
+  transition: all 0.2s linear;
+}
+.social-icons a:active,
+.social-icons a:focus,
+.social-icons a:hover {
+  color: #fff;
+  background-color: #29aafe;
+}
+/* .social-icons.size-sm a {
+  line-height: 34px;
+  height: 34px;
+  width: 34px;
+  font-size: 14px;
+} */
+.social-icons a.facebook:hover,
+.social-icons a.linkedin:hover {
+  background-color: #3b5998;
+}
+.social-icons a.twitter:hover {
+  background-color: #00aced;
+}
+.social-icons a.tiktok:hover {
+  background-color: #202020;
+}
+
+/* #############################################
+##############################################
+############################################ */
+/* LO MAS VENDIDO */
+@media (max-width: 1200px) {
+  .garantitem {
+    margin: 10px 5px;
+    font-size: 12px;
+  }
+
+  .fa-solid {
+    font-size: 30px;
+  }
+
+  /* FOOTER  */
+  .site-footer .social-icons a {
+    width: 50px;
+    height: 50px;
+    line-height: 53px;
+    /* margin-left: 16px; */
+    /* margin-right: 0; */
+  }
+
+  .social-icons a {
+    font-size: 25px;
+  }
+}
+
+@media (max-width: 992px) {
+  nav ul li a {
+    font-size: 14px;
+    padding: 5px 10px;
+  }
+
+  .grid-item {
+    width: 200px;
+  }
+
+  /* BOTON VER MAS */
+  .see-more-btn {
+    width: 40%;
+    margin-left: 30%;
+  }
+
+  /* GARANTIA */
+  .garantia {
+    display: flex;
+    flex-wrap: wrap;
+    min-height: 200px;
+    width: 100%;
+    /* justify-content: space-around; */
+    margin: 20px 0px;
+
+    /* padding: 0 50px; */
+  }
+
+  .garantia article {
+    flex: 1 1 20%;
+    width: 20%;
+    text-align: center;
+    /* min-width: 200px; */
+    /* max-width: 18%; */
+
+    /* height: 180px; */
+  }
+
+  .garantitem {
+    margin: 10px 5px;
+    font-size: 12px;
+  }
+
+  .fa-solid {
+    font-size: 30px;
+  }
+
+  /* FOOTER  */
+  .site-footer .social-icons a {
+    width: 50px;
+    height: 50px;
+    line-height: 53px;
+    /* margin-left: 16px; */
+    /* margin-right: 0; */
+  }
+
+  .social-icons a {
+    font-size: 25px;
+  }
+}
+
+@media (max-width: 768px) {
+  /* MENU  */
+  nav ul {
+    flex-direction: column;
+    display: none;
+    background-color: rgba(0, 0, 0, 0.7);
+    position: absolute;
+    top: 100%;
+    right: -16px;
+  }
+
+  nav ul li {
+    width: 100%;
+  }
+
+  nav ul li a {
+    width: 170px;
+    /* ++++++++++++++++++++++++ */
+    display: block; /* Asegurar que los enlaces ocupen todo el espacio disponible */
+    padding: 10px;
+  }
+
+  /* Submenús en menú hamburguesa */
+  nav ul li ul {
+    display: none;
+    position: relative; /* No usamos absolute para que no se amontone */
+    background-color: rgba(0, 0, 0, 0.7);
+    margin-top: 10px; /* Espacio entre el menú principal y el submenú */
+  }
+
+  .menu-btn {
+    display: block;
+  }
+
+  /* Mostrar el menú cuando está activo */
+  nav ul.show-menu {
+    display: block;
+  }
+
+  /* Cambiar el ícono a "X" cuando el menú está activo */
+  .menu-btn.active::before {
+    content: "✕";
+  }
+
+  .menu-btn::before {
+    content: "☰";
+  }
+
+  /* PRODUCTOS  */
+
+  .productos {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* margin: 0 1rem; */
+    /* height: 850px; */
+
+    width: 100%;
+  }
+
+  .productos .prodshirt,
+  .productos .prodhoddie {
+    height: 920px;
+    width: 80%;
+  }
+
+  /* LO MAS VENDIDO  */
+  .masvendido {
+    grid-template-columns: 1fr;
+
+    width: 60%;
+    /* margin-left: 20%; */
+  }
+
+  .masvendido {
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 0.2fr));
+    width: 100%;
+    padding: 0 5rem;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .grid-item {
+    width: 250px;
+  }
+
+  /* BOTON VER MAS */
+  .see-more-btn {
+    width: 40%;
+    margin-left: 30%;
+  }
+
+  /* GARANTIA */
+  .garantia {
+    display: flex;
+    flex-wrap: wrap;
+    min-height: 250px;
+    width: 100%;
+    /* justify-content: space-around; */
+    margin: 30px 0px;
+
+    padding: 0 60px;
+  }
+
+  .garantia article {
+    flex: 1 0 34%;
+    width: 22%;
+    text-align: center;
+    min-width: 200px;
+    /* max-width: 18%; */
+  }
+
+  .garantitem {
+    margin: 10px 5px;
+    font-size: 14px;
+  }
+
+  .fa-solid {
+    font-size: 30px;
+  }
+
+  /* FOOTER  */
+  footer .site-footer {
+    padding: 28px;
+  }
+
+  .site-footer .copyright-text,
+  .site-footer .social-icons {
+    /* text-align: center; */
+    width: 320px;
+  }
+
+  .site-footer .social-icons a {
+    font-size: 20px;
+    width: 40px;
+    height: 40px;
+    line-height: 43px;
+    text-align: center;
+    padding-left: 3px;
+    /* margin-right: 0; */
+  }
+}
+
+@media (max-width: 576px) {
+  section .productos {
+    width: 100%;
+  }
+
+  .productos .prodshirt,
+  .productos .prodhoddie {
+    height: 720px;
+    width: 80%;
+  }
+
+  /* LO MAS VENDIDO */
+  .masvendido {
+    /* grid-template-columns: 1fr; */
+
+    /* width: 60%; */
+    /* margin-left: 20%; */
+  }
+
+  .masvendido {
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 0.2fr));
+    width: 100%;
+    padding: 0 5rem;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .grid-item {
+    width: 250px;
+  }
+
+  /* BOTON VER MAS */
+  .see-more-btn {
+    width: 50%;
+    margin-left: 25%;
+  }
+
+  /* GARANTIA */
+  .garantia {
+    display: flex;
+    flex-wrap: wrap;
+    min-height: 250px;
+    width: 100%;
+    /* justify-content: space-around; */
+    margin: 30px 0px;
+
+    padding: 0 60px;
+  }
+
+  .garantia article {
+    /* flex: 1 1 22%; */
+    width: 22%;
+    text-align: center;
+    min-width: 200px;
+    /* max-width: 18%; */
+  }
+
+  .garantitem {
+    margin: 10px 5px;
+    font-size: 14px;
+  }
+
+  .fa-solid {
+    font-size: 30px;
+  }
+
+  /* FOOTER  */
+  footer .site-footer {
+    padding: 28px;
+  }
+
+  .site-footer .copyright-text,
+  .site-footer .social-icons {
+    text-align: center;
+    width: 220px;
+  }
+
+  .social-icons li.title {
+    display: block;
+    margin-right: 0;
+    font-weight: 600;
+  }
+
+  .site-footer .copyright-text {
+    font-size: 10px;
+  }
+
+  .site-footer .social-icons a {
+    width: 30px;
+    height: 30px;
+    line-height: 33px;
+    /* margin-left: 16px; */
+    /* margin-right: 0; */
+  }
+
+  .social-icons a {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 414px) {
+}
+
+/* FIN LO MAS VENDIDO */
